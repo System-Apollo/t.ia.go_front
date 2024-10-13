@@ -1,0 +1,41 @@
+/* Estilos para o container principal */
+.home-container {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.images{
+    margin-bottom: 15px;
+}
+
+/* Estilo para o título */
+.title-text {
+    font-size: 52px;
+    font-weight: bold;
+    color: #28306D;
+    margin-bottom: 30px;
+}
+
+/* Estilos para o botão de acesso */
+.access-button {
+    padding: 12px 24px;
+    font-size: 24px;
+    color: white;
+    background-color: #28306D;
+    ;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.icon-button{
+    margin-left: 10px;
+}
+
+.access-button:hover {
+    background-color: #27498c;
+}

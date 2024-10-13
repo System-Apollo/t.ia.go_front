@@ -1,0 +1,120 @@
+/* Container principal da página IA */
+.ia-container {
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* Permite rolagem vertical */
+}
+.images{
+  margin-bottom: 100px;
+}
+/* titulo principal */
+.ia-title1{
+  font-size: 45px;
+  color:#28306D;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o título */
+.ia-title {
+  font-size: 18px;
+  color: #28306D;
+  margin-bottom: 20px;
+  font-weight: 500;
+  
+}
+
+
+/* Estilo para o input de pergunta */
+.ia-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 2px solid #28306D;
+  border-radius: 47px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o botão de pergunta */
+.ia-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #28306D;
+  color: white;
+  border: none;
+  border-radius: 47px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+.ia-button:hover {
+  background-color: #28306D;
+}
+
+
+
+/* Estilo para a resposta */
+.ia-response {
+  font-size: 18px;
+  padding: 20px;
+  width: 50%;
+  max-width: 600px;
+  background-color: #41BAC9;
+  color: #28306D;
+  border-radius: 10px;
+  margin-top: 20px;
+  word-wrap: break-word;
+}
+
+/* Estilo para as opções de resposta sobre o gráfico */
+.ia-grafico-opcoes {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.ia-button-grafico {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #28306D;
+  color: white;
+  border: none;
+  border-radius: 47px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+.ia-button-grafico:hover {
+  background-color: #1f2e5a;
+}
+.ia-title-grafico{
+  
+  margin-top: 10px;
+  font-size: 24px;
+  color: #28306D;
+  margin-bottom: 20px;
+  
+}
+/* Estilo para o contêiner do gráfico */
+.ia-grafico {
+  margin-top: 30px;
+  text-align: center;
+  max-width: 80%;
+  padding: 20px;
+  min-height: 300px; /* Define uma altura mínima para o gráfico */
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a imagem do gráfico */
+.ia-grafico-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
