@@ -1,0 +1,53 @@
+/* Estilos para o container principal */
+.home-container {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.images{
+    margin-bottom: 30px;
+}
+.images1{
+  
+    margin-top: 30px;
+
+}
+
+/* Estilo para o título */
+.title-text {
+    font-size: 52px;
+    font-weight: bold;
+    color: #28306D;
+    margin-bottom: 30px;
+}
+
+/* Estilos para o botão de acesso */
+.access-button {
+    display: flex; /* Flexbox para alinhar o texto e a imagem */
+    align-items: center; 
+    /* justify-content: center; Centraliza o conteúdo do botão */
+    padding: 10px 20px;
+    font-size: 24px;
+    color: white;
+    background-color: #28306D;
+    border: none;
+    /* width: calc(100% - 60px); */
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500
+}
+
+/* Estilos para a imagem do botão */
+.icon {
+    margin-left: 5px; /* Espaçamento entre o texto e a imagem */
+}
+
+/* Efeito de hover no botão */
+.access-button:hover {
+    background-color: #27498c;
+}

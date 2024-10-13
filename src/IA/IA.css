@@ -1,0 +1,326 @@
+/* Container principal da página IA */
+.ia-container {
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+  overflow-y: auto;
+  /* Permite rolagem vertical */
+
+}
+
+.imfs {
+  position: fixed;
+  top: 0;
+}
+
+/* Título principal */
+.ia-title1 {
+  font-size: 45px;
+  color: #28306D;
+  margin-top: 150px;
+}
+
+/* Subtítulo */
+.ia-title {
+  font-size: 18px;
+  color: #28306D;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Estilo para o cabeçalho com imagem e nome da aplicação */
+.ia-nome {
+  display: flex;
+  align-items: flex-start; /* Mantém a imagem alinhada à esquerda */
+  gap: 10px; /* Espaçamento entre imagem e o nome/estado */
+  padding: 10px;
+  background-color: #dbd7d7f2;
+  width: 100%;
+  max-width: 600px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1; /* Certifica-se de que fica acima do conteúdo rolável */
+  margin: 0 auto;
+}
+
+/* Estilo para a imagem de perfil */
+.profile-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #23C7D9;
+  /* Adiciona uma borda branca ao redor da imagem */
+}
+
+/* Estilo para o nome da aplicação */
+.ia-app-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  color: #161540;
+  font-weight: 500;
+}
+
+.digitando-texto {
+  font-size: 14px;
+  color: #888;
+  margin-top: 0px;
+  font-style: italic;
+}
+
+/* Efeito de rotação para alternar entre chat e gráfico */
+.chat-grafico-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  perspective: 1000px;
+  /* Cria a perspectiva 3D */
+  position: relative;
+}
+
+/* A classe aplicada quando o gráfico é gerado */
+.chat-grafico-wrapper.virar .ia-grafico {
+  transform: rotateY(0deg);
+  transition: transform 2.5s ease-in-out;
+  display: block;
+  opacity: 1;
+
+}
+
+.chat-grafico-wrapper.virar .ia-grafico {
+  transform: rotateY(0deg);
+  transition: transform 2.5s ease-in-out;
+}
+
+.chat-conversa {
+  width: 100%;
+  backface-visibility: hidden;
+  /* Esconde o verso do chat */
+  transform: rotateY(0deg);
+  transition: transform 2.0s ease-in-out;
+}
+
+/* Estilo da barra de rolagem */
+.chat-conversa::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-conversa::-webkit-scrollbar-thumb {
+  background-color: #dbd7d78a;
+  /* Cor da barra */
+  border-radius: 6px;
+}
+
+.chat-conversa::-webkit-scrollbar-thumb:hover {
+  background-color: #b4b4b4;
+  /* Cor quando o mouse está sobre a barra */
+}
+
+.chat-conversa::-webkit-scrollbar-track {
+  background-color: #f0f0f03e;
+  /* Cor da trilha */
+}
+
+
+/* Estilo para o gráfico */
+.ia-grafico {
+  width: calc(100% - 60px);
+  /* Igual ao tamanho da caixa de conversa */
+  max-width: 600px;
+  /* Igual ao tamanho da caixa de conversa */
+  height: 500px;
+  /* Igual ao tamanho da caixa de conversa */
+  position: absolute;
+  top: 0;
+  left: 28px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.407);
+  transform: rotateY(-180deg);
+  /* Mantém o gráfico escondido */
+  backface-visibility: hidden;
+  opacity: 0;
+  display: none;
+  transition: transform 2.5s ease-in-out, opacity 2.5s ease-in-out;
+}
+
+
+.ia-grafico.mostrar-grafico {
+  display: block;
+  opacity: 1;
+  transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+}
+
+.ia-grafico.esconder-grafico {
+  opacity: 0;
+  display: none;
+  transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+}
+
+/* Contêiner de mensagens estilo chat */
+.chat-conversa {
+  width: calc(100% - 60px);
+  max-width: 600px;
+  background-image: url('../Assets/fundo3.jpg');
+  padding: 20px;
+  padding-top: 0px;
+  /* Ajusta o padding-top para compensar a altura do cabeçalho */
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  margin-top: 20px;
+  height: 500px;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+/* Estilo para cada mensagem dentro do chat */
+.mensagem {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para a pergunta no chat */
+.mensagem p {
+  margin: 5px 0;
+}
+
+.mensagem strong {
+  color: #28306D;
+  /* Cor azul escuro para diferenciar */
+}
+
+/* Estilo para as perguntas do usuário */
+.mensagem .pergunta {
+  background-color: #28306D;
+  color: white;
+  padding: 10px;
+  border-radius: 15px 15px 0 15px;
+  word-wrap: break-word;
+  font-size: 16px;
+  align-self: flex-end;
+  max-width: 80%;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Estilo para as respostas da IA */
+.mensagem .resposta {
+  background-color: #41BAC9;
+  color: white;
+  padding: 10px;
+  border-radius: 15px 15px 15px 0;
+  word-wrap: break-word;
+  font-size: 16px;
+  align-self: flex-start;
+  max-width: 80%;
+  text-align: left;
+}
+
+.digitando-p {
+  font-size: 20px;
+  color: white;
+  font-style: italic;
+  animation: digitando 1.5s steps(3, end) infinite; /* Animação de 1s para 3 estágios, repetindo infinitamente */
+}
+
+@keyframes digitando {
+  0% {
+    content: '';
+  }
+  33% {
+    content: '.';
+  }
+  66% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}
+
+
+/* Estilo para o input de pergunta */
+.ia-input {
+  padding: 10px;
+  font-size: 16px;
+  width: calc(100% - 60px);
+  border: 2px solid #28306D;
+  border-radius: 20px;
+}
+
+/* Contêiner para o input e o botão */
+.input-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+  gap: 10px;
+  bottom: 20px;
+  background-color: #f6f6f6a9;
+  padding: 10px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+/* Botão de envio */
+.ia-button:hover {
+  background-color: #34477e;
+}
+
+.icon_dash {
+  width: 20px;
+  height: 20px;
+}
+
+.ia-button:hover {
+  background-color: #28306D;
+}
+
+/* Estilo para o botão de gráfico */
+.ia-button-grafico {
+  background-color: #41BAC9;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 47px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ia-button-grafico:hover {
+  background-color: #369ba9;
+}
+
+/* Estilo para a resposta */
+.ia-response {
+  font-size: 18px;
+  padding: 20px;
+  width: 50%;
+  max-width: 600px;
+  background-color: #41BAC9;
+  color: #28306D;
+  border-radius: 10px;
+  margin-top: 20px;
+  word-wrap: break-word;
+}
+
+/* Estilo para o título do gráfico */
+.ia-title-grafico {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #28306D;
+  margin-bottom: 20px;
+}
