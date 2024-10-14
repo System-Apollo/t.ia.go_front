@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-import Home from './Home/Home';
-import IA from './IA/ia'; // Certifique-se de que o caminho está correto
+import '../src/styles/App.css'
+import Home from './pages/Home';
+import IA from './pages/ia'; // Certifique-se de que o caminho está correto
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // 1. import `ChakraProvider` component
