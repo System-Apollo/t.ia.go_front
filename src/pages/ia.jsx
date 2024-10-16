@@ -67,7 +67,7 @@ const App = () => {
       // Limpa o campo de input logo após o envio da pergunta
       setPergunta('')
 
-      const response = await axios.post('http://192.168.2.56:5000/pergunta', {
+      const response = await axios.post('https://c988-187-32-212-210.ngrok-free.app/pergunta', {
         pergunta: pergunta,
       });
 
