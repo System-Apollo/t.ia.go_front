@@ -28,7 +28,7 @@ const Home = () => {
             <h1 className="title-text">Insights!</h1>
             
                 <div onClick={handleAcessar} className="access-button">
-                    Fale com o TIA <img src={Logo3} className="icon" alt="Logo2" />!
+                    Fale com o TIA <img src={Logo3} className="icon" alt="Logo2" />
                 </div>
             
         </div>

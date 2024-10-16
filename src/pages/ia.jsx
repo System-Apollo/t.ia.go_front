@@ -16,6 +16,7 @@ const App = () => {
   const [resposta, setResposta] = useState('');
   const [conversas, setConversas] = useState([]);
   const [digitando, setDigitando] = useState(false); // Estado de "digitando..."
+  const [status, setStatus] = useState('online'); // Estado para o status (online ou digitando)
   const [dadosGrafico, setDadosGrafico] = useState({}); // Estado para os dados do gráfico
   const [tipoGrafico, setTipoGrafico] = useState(''); // Estado para o tipo de gráfico a ser gerado
   const [mostrarBotaoGrafico, setMostrarBotaoGrafico] = useState(false); // Controla a exibição do botão de gerar gráfico
@@ -49,18 +50,24 @@ const App = () => {
   const handlePergunta = async () => {
     try {
 
+      // Atualiza o status para "digitando..."
+      setDigitando(true);
+      setStatus('digitando...');
       // Exibe a pergunta imediatamente no chat
       const novaConversa = { pergunta, resposta: '' }; // Exibe a pergunta imediatamente
       setConversas((prevConversas) => [...prevConversas, novaConversa]);
 
       setDigitando(true); // Mostra "digitando..."
 
+
       setMostrarGrafico(false);
       setMostrarBotaoGrafico(false);
       setDadosGrafico({});
       setResposta('');
+      // Limpa o campo de input logo após o envio da pergunta
+      setPergunta('')
 
-      const response = await axios.post('http://127.0.0.1:5000/pergunta', {
+      const response = await axios.post('http://192.168.2.56:5000/pergunta', {
         pergunta: pergunta,
       });
 
@@ -84,6 +91,7 @@ const App = () => {
         localStorage.setItem('conversas', JSON.stringify(novasConversas));
 
         setDigitando(false); // Para de mostrar "digitando..."
+        setStatus('online'); // Volta para "online"
 
         // Atualizar o estado das conversas para que a nova conversa apareça imediatamente
         setConversas(novasConversas);
@@ -570,93 +578,107 @@ const App = () => {
 
   return (
     <div className="ia-container">
-      <div className="imfs">
-        <img src={Logo2} className="imf-img" alt="Logo1" height={55} width={248} />
-      </div>
+      <div className='title-container'>
+        <div className='img-logo'>
+          <img src={Logo2} className="imf-img" alt="Logo1" height={80} width={248} />
+        </div>
+        
+        <div className='titles'>
+          <h1 className="ia-title1">Como posso facilitar seu dia hoje?</h1>
+          <h2 className="ia-title">
+            Faça uma pergunta, exemplo: Quantos processos ativos na minha base de processos?
+          </h2>
 
-      <h1 className="ia-title1">Como posso facilitar seu dia hoje?</h1>
-      <h2 className="ia-title">
-        Faça uma pergunta, como: Quantos processos ativos na minha base de processos?
-      </h2>
+        </div>
+
+      </div>
 
       {/* Exibir o chat ou o gráfico com efeito de rotação */}
-      <div className={`chat-grafico-wrapper ${mostrarGrafico ? 'virar' : ''}`}>
-        <div className="chat-conversa" ref={conversaRef}>
-          {/* Cabeçalho com imagem e nome, estilo WhatsApp */}
-          <div className="ia-nome">
-            <img src={Logo3} className="profile-image" alt="Logo" />
-            <div className="ia-app-name">
-              <h1 className="ia-app-name">TIAGO</h1>
-              {/* Exibir "Digitando..." logo abaixo do nome TIAGO */}
-              {digitando && <p className="digitando-texto">Digitando...</p>}
+    
+        <div className={`chat-grafico-wrapper ${mostrarGrafico ? 'virar' : ''}`}>
+          <div className="chat-conversa" ref={conversaRef}>
+            {/* Cabeçalho com imagem e nome, estilo WhatsApp */}
+            <div className="ia-nome">
+              <img src={Logo3} className="profile-image" alt="Logo" />
+              <div className="ia-app-name">
+                <h1 className="ia-app-name">TIAGO</h1>
+                {/* Exibir o status, que será "online" ou "digitando..." */}
+                <p className="digitando-texto">{status}</p>
+              </div>
             </div>
+
+            {conversas.map((conversa, index) => (
+              <div key={index} className="mensagem">
+                <div className="pergunta">
+                  <p>{conversa.pergunta}</p>
+                </div>
+                <div className="resposta">
+                  {/* Exibe o efeito "..." enquanto está digitando, caso contrário, exibe a resposta */}
+                  {digitando && index === conversas.length - 1 ? (
+                    <p className="digitando-p">...</p>
+                  ) : (
+                    <p>{conversa.resposta}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+
           </div>
 
-          {conversas.map((conversa, index) => (
-            <div key={index} className="mensagem">
-              <div className="pergunta">
-                <p>{conversa.pergunta}</p>
-              </div>
-              <div className="resposta">
-      {/* Exibe o efeito "..." enquanto está digitando, caso contrário, exibe a resposta */}
-      {digitando && index === conversas.length - 1 ? (
-        <p className="digitando-p">...</p>
-      ) : (
-        <p>{conversa.resposta}</p>
-      )}
-    </div>
-            </div>
-          ))}
+          {/* Gráfico */}
+          <div className={`ia-grafico ${mostrarGrafico ? 'mostrar-grafico' : 'esconder-grafico'}`}>
+            {mostrarGrafico && <Bar data={dadosGrafico} options={options} />}
+            {/* <h3 className='grafico-message'>Faça novamente uma nova pergunta para volta a chat-conversa.</h3> */}
+          </div>
+        {/* Input e botão de envio */}
+        <div className="input-button">
+          <input
+            type="text"
+            value={pergunta}
+            onChange={(e) => setPergunta(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                handlePergunta();
+              }
+            }}
+            placeholder="Faça sua pergunta"
+            className="ia-input"
+          />
 
-        </div>
-
-        {/* Gráfico */}
-        <div className={`ia-grafico ${mostrarGrafico ? 'mostrar-grafico' : 'esconder-grafico'}`}>
-          {mostrarGrafico && <Bar data={dadosGrafico} options={options} />}
-        </div>
-      </div>
-
-      {/* Input e botão de envio */}
-      <div className="input-button">
-        <input
-          type="text"
-          value={pergunta}
-          onChange={(e) => setPergunta(e.target.value)}
-          placeholder="Faça sua pergunta"
-          className="ia-input"
-        />
-
-        {/* Botão de envio */}
-        <Button
-          textColor='#fff'
-          rightIcon={<SendHorizontal color="#ffffff" />}
-          onClick={handlePergunta}
-          bgColor='#3B3670'
-          borderRadius={50}
-          variant='solid'
-          _hover={{ bg: '#2e2b58' }}
-          className="send-button"
-        >
-          GO
-        </Button>
-
-        {/* Botão para gerar gráfico */}
-        {mostrarBotaoGrafico && (
+          {/* Botão de envio */}
           <Button
             textColor='#fff'
-            onClick={handleGerarGrafico}
+            rightIcon={<SendHorizontal color="#ffffff" />}
+            onClick={handlePergunta}
             bgColor='#3B3670'
-            borderRadius="50%"
+            borderRadius={50}
             variant='solid'
             _hover={{ bg: '#2e2b58' }}
-            className="icon-button"
-            m={0}
-            p={2}
+            className="send-button"
           >
-            <ChartNoAxesCombined color="#ffffff" size={30} />
+            GO
           </Button>
-        )}
-      </div>
+
+          {/* Botão para gerar gráfico */}
+          {mostrarBotaoGrafico && (
+            <Button
+              textColor='#fff'
+              onClick={handleGerarGrafico}
+              bgColor='#3B3670'
+              borderRadius="50%"
+              variant='solid'
+              _hover={{ bg: '#2e2b58' }}
+              className="icon-button"
+              m={0}
+              p={2}
+            >
+              <ChartNoAxesCombined color="#ffffff" size={30} />
+            </Button>
+          )}
+        </div>
+        </div>
+
+
     </div>
   );
 };

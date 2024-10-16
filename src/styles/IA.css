@@ -4,7 +4,8 @@
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  gap: 5rem;
   align-items: center;
   height: 100vh;
   width: 100vw;
@@ -14,23 +15,45 @@
 
 }
 
-.imfs {
-  position: fixed;
-  top: 0;
+.title-container{
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ height: 200px;
+ gap: 1rem;
+}
+
+.img-logo{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.imf-img{
+  height: 200px;
+  width: 400px;
+}
+
+.titles{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+  gap: 0.8rem;
 }
 
 /* Título principal */
 .ia-title1 {
   font-size: 45px;
   color: #28306D;
-  margin-top: 150px;
+  /* margin-top: 150px; */
 }
 
 /* Subtítulo */
 .ia-title {
   font-size: 18px;
   color: #28306D;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   font-weight: 500;
 }
 
@@ -42,7 +65,6 @@
   padding: 10px;
   background-color: #dbd7d7f2;
   width: 100%;
-  max-width: 600px;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
@@ -57,7 +79,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #23C7D9;
+  top: 0;
+  border: 2px solid #28306D;
   /* Adiciona uma borda branca ao redor da imagem */
 }
 
@@ -81,24 +104,8 @@
 .chat-grafico-wrapper {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
   perspective: 1000px;
-  /* Cria a perspectiva 3D */
   position: relative;
-}
-
-/* A classe aplicada quando o gráfico é gerado */
-.chat-grafico-wrapper.virar .ia-grafico {
-  transform: rotateY(0deg);
-  transition: transform 2.5s ease-in-out;
-  display: block;
-  opacity: 1;
-
-}
-
-.chat-grafico-wrapper.virar .ia-grafico {
-  transform: rotateY(0deg);
-  transition: transform 2.5s ease-in-out;
 }
 
 
@@ -123,33 +130,32 @@
   /* Cor da trilha */
 }
 
-
 /* Estilo para o gráfico */
 .ia-grafico {
-  width: calc(100% - 60px);
-  /* Igual ao tamanho da caixa de conversa */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 2rem;
   max-width: 600px;
-  /* Igual ao tamanho da caixa de conversa */
-  height: 400px;
-  /* Igual ao tamanho da caixa de conversa */
+  height: 530px;
   position: absolute;
-  top: 0;
-  left: 28px;
+  top: 10%;
   background-color: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.407);
-  transform: rotateY(-180deg);
-  /* Mantém o gráfico escondido */
   backface-visibility: hidden;
   opacity: 0;
   display: none;
-  transition: transform 2.5s ease-in-out, opacity 2.5s ease-in-out;
+
 }
+
 
 
 .ia-grafico.mostrar-grafico {
   display: block;
   opacity: 1;
-  transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+  transition: transform 2.5s ease-in-out;
 }
 
 .ia-grafico.esconder-grafico {
@@ -160,24 +166,20 @@
 
 /* Contêiner de mensagens estilo chat */
 .chat-conversa {
-  width: calc(100% - 60px);
-  max-width: 600px;
-  background-image: url('../Assets/fundo3.jpg');
-  padding: 20px;
+  width: 100%;
+  background-image: url('../Assets/fundo4.png');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
   padding-top: 0px;
-  /* Ajusta o padding-top para compensar a altura do cabeçalho */
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  margin-top: 20px;
-  height: 400px;
+  height: 600px;
   overflow-y: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   backface-visibility: hidden;
-  /* Esconde o verso do chat */
-  transform: rotateY(0deg);
   transition: transform 2.0s ease-in-out;
 }
 
@@ -187,6 +189,7 @@
   display: flex;
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 15px;
 }
 
 /* Estilo para a pergunta no chat */
@@ -224,6 +227,7 @@
   align-self: flex-start;
   max-width: 80%;
   text-align: left;
+  white-space: normal;
 }
 
 .digitando-p {
@@ -261,12 +265,14 @@
 /* Contêiner para o input e o botão */
 .input-button {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 540px;
+  /* max-width: 540px; */
+  height: 50px;
   gap: 10px;
-  bottom: 20px;
-  background-color: #f6f6f6a9;
+  /* bottom: 20px; */
+  /* background-color: #f6f6f6a9; */
   padding: 10px;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
@@ -275,11 +281,6 @@
 /* Botão de envio */
 .ia-button:hover {
   background-color: #34477e;
-}
-
-.icon_dash {
-  width: 20px;
-  height: 20px;
 }
 
 .ia-button:hover {
@@ -302,91 +303,12 @@
   background-color: #369ba9;
 }
 
-/* Estilo para a resposta */
-.ia-response {
-  font-size: 18px;
-  padding: 20px;
-  width: 50%;
-  max-width: 600px;
-  background-color: #41BAC9;
-  color: #28306D;
-  border-radius: 10px;
-  margin-top: 20px;
-  word-wrap: break-word;
-}
-
 /* Estilo para o título do gráfico */
 .ia-title-grafico {
   margin-top: 10px;
   font-size: 24px;
   color: #28306D;
   margin-bottom: 20px;
+  
 }
 
-/* Media Query para telas de tablet no modo retrato (exemplo de resolução para o Galaxy Tab A9+ 11") */
-@media screen and (max-width: 800px) and (orientation: portrait) {
-  .ia-container {
-    width: 100%;
-    height: 100vh;
-    padding: 20px;
-    justify-content: flex-start; /* Ajusta a tela para tablets */
-  }
-
-  .ia-title1 {
-    font-size: 36px; /* Reduz o tamanho do título principal para caber melhor em telas menores */
-    margin-top: 80px; /* Diminui o espaço superior */
-  }
-
-  .ia-title {
-    font-size: 16px; /* Ajusta o subtítulo */
-  }
-
-  .chat-conversa {
-    max-width: 100%; /* Expande o chat para a largura total da tela */
-    height: 400px; /* Ajusta a altura do chat */
-  }
-
-  .ia-grafico {
-    max-width: 100%; /* O gráfico também deve se ajustar à largura da tela */
-    height: 300px; /* Diminui a altura do gráfico para tablets */
-  }
-
-  .profile-image {
-    width: 30px; /* Ajusta o tamanho da imagem de perfil para tablets */
-    height: 30px;
-  }
-
-  .ia-app-name {
-    font-size: 16px; /* Ajusta o tamanho da fonte do nome do aplicativo */
-  }
-
-  .ia-input {
-    width: calc(100% - 40px); /* Aumenta a área de input para se ajustar melhor em telas menores */
-  }
-
-  .input-button {
-    max-width: 100%; /* O contêiner de input e botões ocupa a largura total */
-    gap: 5px; /* Reduz o espaçamento entre input e botão */
-  }
-
-  /* Ajustes para o botão de envio */
-  .send-button {
-    padding: 10px 15px; /* Diminui o espaçamento interno do botão */
-  }
-
-  .ia-nome {
-    padding: 10px; /* Ajusta o padding do cabeçalho */
-    max-width: 100%; /* Garante que a largura do cabeçalho ocupe toda a tela */
-  }
-
-  /* Ajusta a exibição das mensagens */
-  .mensagem .pergunta, .mensagem .resposta {
-    max-width: 90%; /* As mensagens ocupam uma porção maior da tela no tablet */
-    font-size: 14px; /* Reduz o tamanho da fonte das mensagens */
-  }
-
-  /* Ajuste para o efeito de rotação */
-  .chat-grafico-wrapper {
-    max-width: 100%; /* Ajusta a largura do contêiner de chat/grafico */
-  }
-}
