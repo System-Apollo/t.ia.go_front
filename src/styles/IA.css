@@ -214,6 +214,9 @@
   max-width: 80%;
   margin-bottom: 5px;
   text-align: left;
+  opacity: 0;
+  transform: translateY(20px); /* Começa ligeiramente abaixo */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Aplica uma transição suave */
 }
 
 /* Estilo para as respostas da IA */
@@ -228,7 +231,18 @@
   max-width: 80%;
   text-align: left;
   white-space: normal;
+  opacity: 0;
+  transform: translateY(20px); /* Começa ligeiramente abaixo */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Aplica uma transição suave */
 }
+
+
+
+.mensagem.aparecer .pergunta, .mensagem.aparecer .resposta {
+  opacity: 1;
+  transform: translateY(0); /* Volta para a posição original */
+}
+
 
 .digitando-p {
   font-size: 20px;
@@ -312,3 +326,96 @@
   
 }
 
+/* Estilo padrão para dispositivos móveis (por exemplo, iPhones) */
+@media (max-width: 600px) {
+  .ia-container {
+    gap: 3rem; /* Reduz o espaçamento entre os elementos */
+    height: auto; /* Ajusta o height para permitir rolagem */
+  }
+
+  .ia-title1 {
+    font-size: 25px; /* Reduz o tamanho do título */
+  }
+  .ia-title{
+    font-size: 10px;
+  }
+
+  .imf-img {
+    width: 250px;
+    height:120px; /* Aumenta a largura e altura da imagem */
+    margin-top: 100px; /* Ajusta a largura da imagem para se adaptar à tela */
+  }
+
+  .ia-nome {
+    padding: 5px; /* Reduz o padding do cabeçalho */
+  }
+
+  .ia-input {
+    width: calc(100% - 40px); /* Ajusta a largura do input */
+  }
+
+  .chat-conversa {
+    margin-top: 15px;
+    height: 350px; /* Ajusta a altura do chat para caber melhor */
+   
+  }
+  .ia-grafico{
+    height: 323px; /* Mantém a altura do chat */
+  }
+}
+
+/* Estilo para tablets no modo retrato */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .ia-container {
+    gap: 3rem;
+    padding: 10px;
+  }
+
+  .ia-title1 {
+    font-size: 36px; /* Ajusta o tamanho do título para tablets */
+  }
+
+  .imf-img {
+    height: 180px;
+    width: 350px; /* Ajusta a largura da imagem */
+  }
+
+  .chat-conversa {
+    height: 500px; /* Ajusta a altura do chat */
+  }
+}
+
+/* Estilo para telas maiores (desktops e laptops) */
+@media (min-width: 1025px) {
+  .ia-container {
+    flex-direction: column; /* Alinha os elementos em linha */
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .imf-img {
+    width: 350px;
+    height:150px; /* Aumenta a largura e altura da imagem */
+    margin-top: 150px;
+  }
+
+  .ia-title1 {
+    font-size: 48px; /* Aumenta o tamanho do título */
+  }
+
+  .chat-conversa {
+    height: 550px; /* Mantém a altura do chat */
+  }
+
+  .ia-grafico{
+    height: 490px; /* Mantém a altura do chat */
+  }
+
+  .ia-input {
+    width: calc(100% - 60px); /* Mantém o input responsivo */
+  }
+
+  .ia-nome {
+    padding: 15px; /* Ajusta o padding para desktops */
+  }
+}

@@ -21,6 +21,8 @@ const App = () => {
   const [tipoGrafico, setTipoGrafico] = useState(''); // Estado para o tipo de gráfico a ser gerado
   const [mostrarBotaoGrafico, setMostrarBotaoGrafico] = useState(false); // Controla a exibição do botão de gerar gráfico
   const [mostrarGrafico, setMostrarGrafico] = useState(false); // Controla exibição do gráfico
+  const [mostrarMensagem, setMostrarMensagem] = useState(false);
+
 
   // Carregar conversas do localStorage quando o componente é montado
   useEffect(() => {
@@ -45,6 +47,13 @@ const App = () => {
         behavior: 'smooth', // Adiciona um efeito suave na rolagem
       });
     }
+  }, [conversas]);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setMostrarMensagem(true);
+    }, 100); // Tempo de atraso para a transição suave
+  
+    return () => clearTimeout(timeout); // Limpa o timeout ao desmontar
   }, [conversas]);
 
   const handlePergunta = async () => {
@@ -608,7 +617,7 @@ const App = () => {
             </div>
 
             {conversas.map((conversa, index) => (
-              <div key={index} className="mensagem">
+              <div key={index} className={`mensagem ${mostrarMensagem ? 'aparecer' : ''}`}>
                 <div className="pergunta">
                   <p>{conversa.pergunta}</p>
                 </div>
