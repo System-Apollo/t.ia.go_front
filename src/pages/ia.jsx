@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import '../styles/IA.css';
 import Logo2 from '../Assets/tiago.png'
-import Logo3 from '../Assets/popinho.png'
+import Logo3 from '../Assets/tiagoia.png'
 import { Button } from '@chakra-ui/react'
 import { SendHorizontal, ChartNoAxesCombined } from 'lucide-react'
 
@@ -589,7 +589,7 @@ const App = () => {
     <div className="ia-container">
       <div className='title-container'>
         <div className='img-logo'>
-          <img src={Logo2} className="imf-img" alt="Logo1" height={80} width={248} />
+          <img src={Logo2} className="imf-img" alt="Logo1" height={88} width={248} />
         </div>
         
         <div className='titles'>

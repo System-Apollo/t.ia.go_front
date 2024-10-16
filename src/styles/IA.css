@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5rem;
+  gap: 6rem;
   align-items: center;
   height: 100vh;
   width: 100vw;
@@ -27,11 +27,13 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 50px;
+  
 }
 
 .imf-img{
-  height: 200px;
-  width: 400px;
+  height: 100px;
+  width: 300px;
 }
 
 .titles{
@@ -40,18 +42,19 @@
   flex-direction: column;
   height: 100px;
   gap: 0.8rem;
+  
 }
 
 /* Título principal */
 .ia-title1 {
-  font-size: 45px;
+  font-size: 35px;
   color: #28306D;
   /* margin-top: 150px; */
 }
 
 /* Subtítulo */
 .ia-title {
-  font-size: 18px;
+  font-size: 16px;
   color: #28306D;
   /* margin-bottom: 20px; */
   font-weight: 500;
@@ -61,8 +64,8 @@
 .ia-nome {
   display: flex;
   align-items: flex-start; /* Mantém a imagem alinhada à esquerda */
-  gap: 10px; /* Espaçamento entre imagem e o nome/estado */
-  padding: 10px;
+  gap: 0.1rem; /* Espaçamento entre imagem e o nome/estado */
+  padding: 8px;
   background-color: #dbd7d7f2;
   width: 100%;
   border-bottom-left-radius: 18px;
@@ -76,8 +79,8 @@
 
 /* Estilo para a imagem de perfil */
 .profile-image {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   top: 0;
   border: 2px solid #28306D;
@@ -91,12 +94,12 @@
   font-size: 18px;
   color: #161540;
   font-weight: 500;
+  gap: 0rem;
 }
 
 .digitando-texto {
   font-size: 14px;
   color: #888;
-  margin-top: 0px;
   font-style: italic;
 }
 
@@ -140,7 +143,7 @@
   padding: 20px;
   gap: 2rem;
   max-width: 600px;
-  height: 530px;
+  height: 355px;
   position: absolute;
   top: 10%;
   background-color: white;
@@ -174,7 +177,7 @@
   padding-top: 0px;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  height: 600px;
+  height: 400px;
   overflow-y: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -329,7 +332,7 @@
 /* Estilo padrão para dispositivos móveis (por exemplo, iPhones) */
 @media (max-width: 600px) {
   .ia-container {
-    gap: 3rem; /* Reduz o espaçamento entre os elementos */
+     /* Reduz o espaçamento entre os elementos */
     height: auto; /* Ajusta o height para permitir rolagem */
   }
 
@@ -365,7 +368,7 @@
 }
 
 /* Estilo para tablets no modo retrato */
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 1200px) and (max-width: 1920px) {
   .ia-container {
     gap: 3rem;
     padding: 10px;
@@ -385,37 +388,60 @@
   }
 }
 
-/* Estilo para telas maiores (desktops e laptops) */
-@media (min-width: 1025px) {
+/* Estilo para Galaxy Tab A9 (SM-X216B) no modo paisagem */
+@media (min-width: 1200px) and (max-width: 1920px) and (orientation: landscape) {
   .ia-container {
-    flex-direction: column; /* Alinha os elementos em linha */
-    justify-content: space-between;
-    gap: 4rem;
+    gap: 8rem; /* Ajusta o espaçamento entre os elementos */
+    padding: 20px; /* Adiciona padding para melhor visualização */
+    height: 100vh;
   }
 
   .imf-img {
-    width: 350px;
-    height:150px; /* Aumenta a largura e altura da imagem */
-    margin-top: 150px;
+    height: 120px;
+    width: 250px; /* Ajusta a largura e altura da imagem */
+    margin-top: 100px;
   }
 
   .ia-title1 {
-    font-size: 48px; /* Aumenta o tamanho do título */
+    font-size: 40px; /* Ajusta o tamanho do título principal */
+  }
+
+  .ia-title {
+    font-size: 18px; /* Ajusta o tamanho do subtítulo */
   }
 
   .chat-conversa {
-    height: 550px; /* Mantém a altura do chat */
+    height: 400px; /* Ajusta a altura do chat para ocupar mais espaço */
   }
 
-  .ia-grafico{
-    height: 490px; /* Mantém a altura do chat */
+  .ia-grafico {
+    height: 355px; /* Ajusta a altura do gráfico */
+    max-width: 600px; /* Aumenta a largura máxima do gráfico */
   }
 
   .ia-input {
-    width: calc(100% - 60px); /* Mantém o input responsivo */
+    font-size: 18px; /* Aumenta o tamanho da fonte no input */
+    width: calc(100% - 80px); /* Ajusta a largura do input */
   }
 
   .ia-nome {
-    padding: 15px; /* Ajusta o padding para desktops */
+    padding: 8px; /* Ajusta o padding do cabeçalho */
+  }
+
+  .mensagem .pergunta, .mensagem .resposta {
+    font-size: 18px; /* Ajusta o tamanho do texto nas mensagens */
+  }
+
+  .input-button {
+    height: 60px; /* Aumenta a altura do contêiner do input e botão */
+  }
+
+  .ia-button {
+    font-size: 18px; /* Ajusta o tamanho do texto no botão */
+  }
+
+  .ia-button-grafico {
+    font-size: 18px; /* Ajusta o tamanho do botão de gráfico */
   }
 }
+
