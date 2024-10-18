@@ -7,6 +7,7 @@ import Logo2 from '../Assets/tiago.png'
 import Logo3 from '../Assets/tiagoia.png'
 import { Button } from '@chakra-ui/react'
 import { SendHorizontal, ChartNoAxesCombined } from 'lucide-react'
+import { TypeAnimation } from 'react-type-animation'
 
 // Registrar os componentes do Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -542,7 +543,7 @@ const App = () => {
           // Caso não haja dados para o gráfico, não exibe o botão
           setMostrarBotaoGrafico(false);
         }
-      }, 3000);
+      }, 2000);
     } catch (error) {
       console.error('Erro ao fazer a pergunta:', error);
     }
@@ -587,20 +588,12 @@ const App = () => {
 
   return (
     <div className="ia-container">
-      <div className='title-container'>
+      {/* <div className='title-container'> */}
         <div className='img-logo'>
-          <img src={Logo2} className="imf-img" alt="Logo1" height={88} width={248} />
+          <img src={Logo2} className="imf-img" alt="Logo1" width={248} />
         </div>
         
-        <div className='titles'>
-          <h1 className="ia-title1">Como posso facilitar seu dia hoje?</h1>
-          <h2 className="ia-title">
-            Faça uma pergunta, exemplo: Quantos processos ativos na minha base de processos?
-          </h2>
-
-        </div>
-
-      </div>
+       
 
       {/* Exibir o chat ou o gráfico com efeito de rotação */}
     
@@ -650,7 +643,7 @@ const App = () => {
                 handlePergunta();
               }
             }}
-            placeholder="Faça sua pergunta"
+            placeholder="Faça uma pergunta"
             className="ia-input"
           />
 
