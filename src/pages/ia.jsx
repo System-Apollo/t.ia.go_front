@@ -7,7 +7,6 @@ import Logo2 from '../Assets/tiago.png'
 import Logo3 from '../Assets/tiagoia.png'
 import { Button } from '@chakra-ui/react'
 import { SendHorizontal, ChartNoAxesCombined } from 'lucide-react'
-import { TypeAnimation } from 'react-type-animation'
 
 // Registrar os componentes do Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);

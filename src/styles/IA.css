@@ -243,7 +243,7 @@
   width: calc(100% - 60px);
   border: 2px solid #28306D;
   border-radius: 20px;
-  
+
 }
 
 /* Contêiner para o input e o botão */
@@ -335,7 +335,7 @@
 }
 
 /* Estilo para tablets no modo retrato */
-@media (min-width: 1200px) and (max-width: 1920px) {
+@media (min-width: 900px) and (max-width: 1920px) {
   .ia-container {
     gap: 3rem;
   }
@@ -410,4 +410,6 @@
     font-size: 18px; /* Ajusta o tamanho do botão de gráfico */
   }
 }
+
+
 
