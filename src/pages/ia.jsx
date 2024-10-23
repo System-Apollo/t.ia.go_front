@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import '../styles/IA.css';
 import Logo2 from '../Assets/tiago.png'
-import Logo3 from '../Assets/tiagoia.png'
+import Logo3 from '../Assets/tiagoadulto-.png'
 import { Button } from '@chakra-ui/react'
 import { SendHorizontal, ChartNoAxesCombined } from 'lucide-react'
 

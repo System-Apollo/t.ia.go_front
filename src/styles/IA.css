@@ -335,7 +335,7 @@
 }
 
 /* Estilo para tablets no modo retrato */
-@media (min-width: 900px) and (max-width: 1920px) {
+@media (min-width: 700px) and (max-width: 1920px) {
   .ia-container {
     gap: 3rem;
   }
