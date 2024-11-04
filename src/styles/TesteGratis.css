@@ -105,3 +105,7 @@
     background-color: #2a5b8a;
     transform: scale(0.98);
 }
+
+.error-message{
+    color: red
+}
