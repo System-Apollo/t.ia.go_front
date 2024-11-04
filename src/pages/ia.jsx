@@ -23,6 +23,7 @@ const App = () => {
   const [mostrarGrafico, setMostrarGrafico] = useState(false); // Controla exibição do gráfico
   const [mostrarMensagem, setMostrarMensagem] = useState(false);
 
+  const token = localStorage.getItem("token");
 
   // Carregar conversas do localStorage quando o componente é montado
   useEffect(() => {
@@ -75,10 +76,19 @@ const App = () => {
       setResposta('');
       // Limpa o campo de input logo após o envio da pergunta
       setPergunta('')
+      const token = localStorage.getItem('token');
 
-      const response = await axios.post('https://dcda-187-32-212-210.ngrok-free.app/pergunta', {
-        pergunta: pergunta,
-      });
+      const response = await axios.post(
+        'https://dcda-187-32-212-210.ngrok-free.app/main/pergunta',
+        {
+          pergunta: pergunta,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       
       console.log('Resposta recebida:', response.data); // Verifique se a resposta está sendo recebida aqui
       
