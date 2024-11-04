@@ -76,9 +76,12 @@ const App = () => {
       // Limpa o campo de input logo após o envio da pergunta
       setPergunta('')
 
-      const response = await axios.post('https://c988-187-32-212-210.ngrok-free.app/pergunta', {
+      const response = await axios.post('https://dcda-187-32-212-210.ngrok-free.app/pergunta', {
         pergunta: pergunta,
       });
+      
+      console.log('Resposta recebida:', response.data); // Verifique se a resposta está sendo recebida aqui
+      
 
       // Simulação de atraso de 2 segundos antes de mostrar a resposta
       setTimeout(() => {
@@ -618,7 +621,8 @@ const App = () => {
                   {digitando && index === conversas.length - 1 ? (
                     <p className="digitando-p">...</p>
                   ) : (
-                    <p>{conversa.resposta}</p>
+                    <p>{typeof conversa.resposta === 'object' ? JSON.stringify(conversa.resposta) : conversa.resposta}</p>
+
                   )}
                 </div>
               </div>
