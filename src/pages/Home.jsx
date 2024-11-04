@@ -13,7 +13,7 @@ import Logo3 from '../Assets/go1.png'
 
 
 const Home = () => {
-    const navigate = useNavigate(); // Hook para redirecionamento
+    const navigate = useNavigate();
 
     const handleAcessar = () => {
         // Redireciona para a página da IA ao clicar no botão
