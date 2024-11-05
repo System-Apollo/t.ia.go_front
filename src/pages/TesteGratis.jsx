@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/TesteGratis.css';
 import Logo from '../Assets/TiagoLogo.png'
 import { useNavigate } from 'react-router-dom';
-import { apiLogin } from '../utils/PostLogin';
+import apiLogin from '../utils/PostLogin';
 
 const TesteGratis = () => {
     const [username, setUsername] = useState('');
@@ -21,6 +21,7 @@ const TesteGratis = () => {
         try{
             const res = await apiLogin.Login(credentials);
             console.log('Login bem-sucedido', res.data);
+            localStorage.setItem("token", res.data.tokens.access_token);
             navigate('/ia');
         } catch(error) {
             setError('Error ao fazer login. Verifique suas credenciais.');
@@ -37,11 +38,24 @@ const TesteGratis = () => {
                     <p className='login-text'>Comece sua experiência com Tiago</p>
                 </div>
                 <form className='form' onSubmit={handleSubmit}>
-                    {/* <label>Email:</label> */}
-                    <input className="input" type="email" placeholder="Email" />
-                    {/* <label>Senha:</label> */}
-                    <input className="input" type="password" placeholder="Senha" />
+
+                    <input
+                     className="input"
+                     type="text" 
+                     placeholder="Usuário"
+                     value={username}
+                     onChange={(e) => setUsername(e.target.value)} />
+
+                    <input
+                     className="input" 
+                     type="password" 
+                     placeholder="Senha"
+                     value={password}
+                     onChange={(e) => setPassword(e.target.value)}
+                    />
+                    
                     <button className="button" type="submit">Iniciar Teste</button>
+
                 </form>
                 {error && <p className='error-message'>{error}</p>}
             </div>
