@@ -79,7 +79,7 @@ const App = () => {
       const token = localStorage.getItem('token');
 
       const response = await axios.post(
-        'https://02c7-187-32-212-210.ngrok-free.app/main/pergunta',
+        'https://996b-179-156-170-171.ngrok-free.app/main/pergunta',
         {
           pergunta: pergunta,
         },

@@ -6,7 +6,7 @@ import Logo from '../Assets/TiagoLogo.png';
 
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Login = () => {
         event.preventDefault();
 
         const credentials = {
-            username: username,
+            email: email,
             password: password,
         };
 
@@ -41,10 +41,10 @@ const Login = () => {
                 <form className='form' onSubmit={handleLogin}>
                     <input
                         className="input"
-                        type="text"
-                        placeholder="usuário"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                     <input
